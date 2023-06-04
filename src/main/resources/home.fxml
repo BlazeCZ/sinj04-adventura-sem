@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.java.sinj04.adventurasem.main.HomeController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+    <RowConstraints vgrow="ALWAYS" />
+    <RowConstraints vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+      <HBox GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <children>
+            <Label prefHeight="30.0" text="Příkaz">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="vstup" onAction="#zpracujVstup" prefHeight="30.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="odesli" mnemonicParsing="false" onAction="#zpracujVstup" prefHeight="30.0" text="Odešli">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <SplitPane dividerPositions="0.2, 0.85" GridPane.rowIndex="2">
+         <items>
+            <ListView fx:id="panelVychodu" minWidth="100.0" onMouseClicked="#vybranVychod" />
+            <TextArea fx:id="vystup" editable="false" minWidth="400.0" />
+            <VBox>
+               <children>
+                  <HBox>
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Pane>
+                           <children>
+                              <ImageView fx:id="batohObrazek" fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@Batoh.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="panelBatohu" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+      <TitledPane text="Mapa" GridPane.rowIndex="1">
+         <content>
+            <HBox>
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Pane>
+                     <children>
+                        <ImageView fitHeight="301.0" fitWidth="493.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Mapa.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="hrac" fitHeight="107.0" fitWidth="40.0" layoutX="47.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Postava.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem fx:id="novahra" mnemonicParsing="false" onAction="#novahra" text="Nová hra" />
+                  <MenuItem fx:id="napoveda" mnemonicParsing="false" onAction="#napoveda" text="Nápověda" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</GridPane>
